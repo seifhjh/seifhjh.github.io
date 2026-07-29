@@ -31,10 +31,13 @@
     </script>
     <style>
         .glow-purple {
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.25);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
         }
         .glow-cyan {
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
+        }
+        .glow-cyan-lg {
+            box-shadow: 0 0 35px rgba(6, 182, 212, 0.45);
         }
         .text-gradient {
             background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
@@ -64,9 +67,20 @@
                 <a href="#projects" class="hover:text-neonCyan transition">Projects</a>
                 <a href="#experience" class="hover:text-neonCyan transition">Experience</a>
             </div>
-            <a href="#contact" class="px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-neonPurple to-neonCyan rounded-full hover:opacity-90 transition glow-purple">
-                Hire Me
-            </a>
+            
+            <!-- Navbar Action Buttons -->
+            <div class="flex items-center gap-3">
+                <!-- Download CV Button in Navbar -->
+                <a href="Seif_Hadjhassen_CV.pdf" download="Seif_Hadjhassen_CV.pdf" class="relative group px-4 py-2 text-xs font-bold text-black bg-neonCyan rounded-full hover:bg-cyan-300 transition glow-cyan flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-black animate-ping"></span>
+                    <i class="fa-solid fa-file-arrow-down"></i> CV
+                </a>
+                
+                <!-- Hire Me Button -->
+                <a href="#contact" class="px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-neonPurple to-neonCyan rounded-full hover:opacity-90 transition glow-purple">
+                    Hire Me
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -85,14 +99,30 @@
             <p class="text-slate-400 text-lg leading-relaxed max-w-2xl">
                 Specialized in building end-to-end production AI solutions. From custom Document AI pipelines & Computer Vision models to high-performance RAG architectures and Generative AI platforms.
             </p>
-            <div class="flex flex-wrap gap-4 pt-4">
-                <a href="#contact" class="px-7 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-neonPurple to-neonCyan hover:shadow-lg hover:shadow-neonPurple/30 transition flex items-center gap-2">
+            
+            <!-- Hero Buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-4">
+                <!-- Highlighted Download CV Button -->
+                <a href="Seif_Hadjhassen_CV.pdf" download="Seif_Hadjhassen_CV.pdf" class="px-8 py-4 rounded-xl font-extrabold text-black bg-neonCyan hover:bg-cyan-300 transition flex items-center gap-3 glow-cyan-lg transform hover:-translate-y-1">
+                    <i class="fa-solid fa-cloud-arrow-down text-xl"></i>
+                    <span>Download CV / Resume</span>
+                    <span class="flex h-3 w-3 relative">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-black"></span>
+                    </span>
+                </a>
+
+                <!-- Get In Touch Button -->
+                <a href="#contact" class="px-7 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-neonPurple to-neonCyan hover:shadow-lg hover:shadow-neonPurple/30 transition flex items-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i> Get In Touch
                 </a>
-                <a href="https://github.com/seifhjh" target="_blank" class="px-7 py-3.5 rounded-xl font-semibold text-white border border-cardBorder bg-cardBg hover:border-neonCyan hover:text-neonCyan transition flex items-center gap-2">
-                    <i class="fa-brands fa-github text-xl"></i> GitHub Profile
+
+                <!-- GitHub Button -->
+                <a href="https://github.com/seifhjh" target="_blank" class="px-6 py-4 rounded-xl font-semibold text-white border border-cardBorder bg-cardBg hover:border-neonCyan hover:text-neonCyan transition flex items-center gap-2">
+                    <i class="fa-brands fa-github text-xl"></i> GitHub
                 </a>
             </div>
+
             <!-- Quick Social Contacts -->
             <div class="flex items-center gap-6 pt-6 text-slate-400">
                 <span class="text-sm font-semibold text-slate-500">Connect:</span>
