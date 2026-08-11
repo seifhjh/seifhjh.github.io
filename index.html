@@ -1,337 +1,113 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seif Hadjhassen | ML & AI Engineer</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        darkBg: '#0b0c10',
-                        cardBg: '#12141c',
-                        cardBorder: '#1f2430',
-                        neonPurple: '#a855f7',
-                        neonCyan: '#06b6d4',
-                        neonPink: '#ec4899',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .glow-purple {
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
-        }
-        .glow-cyan {
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
-        }
-        .glow-cyan-lg {
-            box-shadow: 0 0 35px rgba(6, 182, 212, 0.45);
-        }
-        .text-gradient {
-            background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .bg-gradient-glow {
-            background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.15) 0%, rgba(11, 12, 16, 0) 70%);
-        }
-    </style>
-</head>
-<body class="bg-darkBg text-slate-300 font-sans antialiased selection:bg-neonPurple selection:text-white">
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+  <div class="container">
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+    <p class="section-subtitle">Explore my work across Artificial Intelligence, Machine Learning, and Full-Stack Web & Mobile Development.</p>
 
-    <!-- Background Glow Effect -->
-    <div class="fixed top-0 left-0 w-full h-full bg-gradient-glow pointer-events-none z-0"></div>
+    <!-- Filter Buttons / Tabs -->
+    <div class="project-tabs">
+      <button class="tab-btn active" onclick="filterProjects('all')">All Work</button>
+      <button class="tab-btn" onclick="filterProjects('ai-ml')">AI & ML Engineering</button>
+      <button class="tab-btn" onclick="filterProjects('fullstack')">Full-Stack (Web & Mobile)</button>
+    </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full backdrop-blur-md bg-darkBg/80 border-b border-cardBorder/60 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-wider text-white flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-neonPurple animate-pulse"></span>
-                SEIF<span class="text-neonCyan">.AI</span>
-            </a>
-            <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="#about" class="hover:text-neonCyan transition">About</a>
-                <a href="#skills" class="hover:text-neonCyan transition">Skills</a>
-                <a href="#projects" class="hover:text-neonCyan transition">Projects</a>
-                <a href="#experience" class="hover:text-neonCyan transition">Experience</a>
-            </div>
-            
-            <!-- Navbar Action Buttons -->
-            <div class="flex items-center gap-3">
-                <!-- Download CV Button in Navbar -->
-                <a href="Seif_Hadjhassen_CV.pdf" download="Seif_Hadjhassen_CV.pdf" class="relative group px-4 py-2 text-xs font-bold text-black bg-neonCyan rounded-full hover:bg-cyan-300 transition glow-cyan flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-black animate-ping"></span>
-                    <i class="fa-solid fa-file-arrow-down"></i> CV
-                </a>
-                
-                <!-- Hire Me Button -->
-                <a href="#contact" class="px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-neonPurple to-neonCyan rounded-full hover:opacity-90 transition glow-purple">
-                    Hire Me
-                </a>
-            </div>
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      
+      <!-- Project 1: AI & ML -->
+      <div class="project-card" data-category="ai-ml">
+        <div class="card-image">
+          <img src="screenshots/ladrad-preview.png" alt="LADRAD Document AI" loading="lazy">
         </div>
-    </nav>
+        <div class="card-content">
+          <span class="category-badge">AI & ML</span>
+          <h3>LADRAD - Document AI & OCR</h3>
+          <p>Enterprise document processing system featuring custom OCR pipelines, classification, and metadata extraction.</p>
 
-    <!-- Hero Section -->
-    <section class="relative z-10 pt-36 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-        <div class="space-y-6 md:w-2/3">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neonPurple/30 bg-neonPurple/10 text-neonPurple text-xs font-semibold uppercase tracking-widest">
-                <i class="fa-solid fa-sparkles"></i> 4+ Years of Industry Experience
-            </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-                Seif Hadjhassen
-                <span class="block text-gradient text-3xl md:text-5xl mt-2">
-                    ML & AI Engineer | RAG Systems, Document AI & Full-Stack AI
-                </span>
-            </h1>
-            <p class="text-slate-400 text-lg leading-relaxed max-w-2xl">
-                Specialized in building end-to-end production AI solutions. From custom Document AI pipelines & Computer Vision models to high-performance RAG architectures and Generative AI platforms.
-            </p>
-            
-            <!-- Hero Buttons -->
-            <div class="flex flex-wrap items-center gap-4 pt-4">
-                <!-- Highlighted Download CV Button -->
-                <a href="Seif_Hadjhassen_CV.pdf" download="Seif_Hadjhassen_CV.pdf" class="px-8 py-4 rounded-xl font-extrabold text-black bg-neonCyan hover:bg-cyan-300 transition flex items-center gap-3 glow-cyan-lg transform hover:-translate-y-1">
-                    <i class="fa-solid fa-cloud-arrow-down text-xl"></i>
-                    <span>Download CV / Resume</span>
-                    <span class="flex h-3 w-3 relative">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-black"></span>
-                    </span>
-                </a>
+          <div class="tech-tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Computer Vision</span>
+            <span>OCR</span>
+          </div>
 
-                <!-- Get In Touch Button -->
-                <a href="#contact" class="px-7 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-neonPurple to-neonCyan hover:shadow-lg hover:shadow-neonPurple/30 transition flex items-center gap-2">
-                    <i class="fa-solid fa-paper-plane"></i> Get In Touch
-                </a>
-
-                <!-- GitHub Button -->
-                <a href="https://github.com/seifhjh" target="_blank" class="px-6 py-4 rounded-xl font-semibold text-white border border-cardBorder bg-cardBg hover:border-neonCyan hover:text-neonCyan transition flex items-center gap-2">
-                    <i class="fa-brands fa-github text-xl"></i> GitHub
-                </a>
-            </div>
-
-            <!-- Quick Social Contacts -->
-            <div class="flex items-center gap-6 pt-6 text-slate-400">
-                <span class="text-sm font-semibold text-slate-500">Connect:</span>
-                <a href="https://wa.me/21658623737" target="_blank" class="hover:text-green-400 text-xl transition"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.linkedin.com/in/seifhadjhassen/" target="_blank" class="hover:text-neonCyan text-xl transition"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:seif.hadjhassen@gmail.com" class="hover:text-neonPurple text-xl transition"><i class="fa-solid fa-envelope"></i></a>
-            </div>
+          <div class="card-links">
+            <a href="#" class="btn-link">View Demo</a>
+            <a href="https://github.com/seifhjh" target="_blank" class="btn-link-outline">GitHub</a>
+          </div>
         </div>
-        
-        <!-- Hero Code/Terminal Aesthetic Box -->
-        <div class="w-full md:w-1/3 bg-cardBg border border-cardBorder rounded-2xl p-6 glow-purple relative overflow-hidden">
-            <div class="flex items-center justify-between border-b border-cardBorder pb-3 mb-4">
-                <div class="flex gap-2">
-                    <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-                    <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-                    <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
-                </div>
-                <span class="text-xs text-slate-500 font-mono">ai_pipeline.py</span>
-            </div>
-            <pre class="font-mono text-xs text-slate-300 leading-relaxed overflow-x-auto">
-<span class="text-neonPurple">from</span> fastapi <span class="text-neonPurple">import</span> FastAPI
-<span class="text-neonPurple">from</span> vision <span class="text-neonPurple">import</span> DocumentAI
-<span class="text-neonPurple">from</span> rag <span class="text-neonPurple">import</span> VectorSearch Engine
+      </div>
 
-app = FastAPI(title=<span class="text-neonCyan">"Production AI"</span>)
-
-<span class="text-neonPurple">@app.post</span>(<span class="text-neonCyan">"/v1/process"</span>)
-<span class="text-neonPurple">async def</span> <span class="text-blue-400">run_pipeline</span>(file: Upload):
-    doc = <span class="text-neonPurple">await</span> DocumentAI.extract(file)
-    rag_context = Engine.query(doc)
-    <span class="text-neonPurple">return</span> {"status": <span class="text-neonCyan">"success"</span>, 
-            "result": rag_context}
-            </pre>
-            <div class="mt-4 pt-4 border-t border-cardBorder/60 flex justify-between items-center text-xs text-slate-400">
-                <span>Status: <span class="text-green-400 font-semibold">Ready for production</span></span>
-                <i class="fa-solid fa-microchip text-neonCyan animate-spin"></i>
-            </div>
+      <!-- Project 2: AI & ML (RAG Knowledge) -->
+      <div class="project-card" data-category="ai-ml">
+        <div class="card-image">
+          <img src="screenshots/rag-pipeline.png" alt="RAG Pipeline System" loading="lazy">
         </div>
-    </section>
+        <div class="card-content">
+          <span class="category-badge">AI & ML</span>
+          <h3>Knowledge Assistant & RAG Pipeline</h3>
+          <p>Advanced RAG system architecture leveraging LLMs, vector search embeddings, and contextual document retrieval.</p>
 
-    <!-- Tech Stack / Skills Section -->
-    <section id="skills" class="py-20 px-6 max-w-7xl mx-auto border-t border-cardBorder/40">
-        <div class="text-center mb-16">
-            <h2 class="text-xs font-bold text-neonCyan uppercase tracking-widest mb-2">Technical Capabilities</h2>
-            <h3 class="text-3xl font-extrabold text-white">Skills & Production Tech Stack</h3>
+          <div class="tech-tags">
+            <span>LangChain</span>
+            <span>VectorDB</span>
+            <span>PyTorch</span>
+            <span>RAG Architecture</span>
+          </div>
+
+          <div class="card-links">
+            <a href="#" class="btn-link">Architecture Details</a>
+          </div>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- AI & Machine Learning -->
-            <div class="bg-cardBg border border-cardBorder p-8 rounded-2xl hover:border-neonPurple/50 transition">
-                <div class="w-12 h-12 rounded-xl bg-neonPurple/10 text-neonPurple flex items-center justify-center text-2xl mb-6">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-4">AI & Machine Learning</h4>
-                <ul class="space-y-2 text-sm text-slate-400">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonPurple"></i> Computer Vision & Object Detection</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonPurple"></i> Document AI & OCR Systems</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonPurple"></i> Image Classification & Deep Learning</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonPurple"></i> Model Experimentation & MLflow</li>
-                </ul>
-            </div>
-
-            <!-- GenAI & RAG -->
-            <div class="bg-cardBg border border-cardBorder p-8 rounded-2xl hover:border-neonCyan/50 transition">
-                <div class="w-12 h-12 rounded-xl bg-neonCyan/10 text-neonCyan flex items-center justify-center text-2xl mb-6">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-4">Generative AI & RAG</h4>
-                <ul class="space-y-2 text-sm text-slate-400">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonCyan"></i> Retrieval-Augmented Generation (RAG)</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonCyan"></i> Large Language Models (LLMs) & Prompt Eng.</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonCyan"></i> Generative Media Pipelines (Image/Video)</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonCyan"></i> Vector Databases & Semantic Search</li>
-                </ul>
-            </div>
-
-            <!-- Software Engineering -->
-            <div class="bg-cardBg border border-cardBorder p-8 rounded-2xl hover:border-neonPink/50 transition">
-                <div class="w-12 h-12 rounded-xl bg-neonPink/10 text-neonPink flex items-center justify-center text-2xl mb-6">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-4">Software Engineering</h4>
-                <ul class="space-y-2 text-sm text-slate-400">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonPink"></i> Python, PyTorch, OpenCV, YOLO</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonPink"></i> Microservices & REST APIs (FastAPI)</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonPink"></i> Docker Containerization & Deployment</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neonPink"></i> Full-Stack (Flutter, JS, Databases)</li>
-                </ul>
-            </div>
+      <!-- Project 3: Full-Stack Mobile -->
+      <div class="project-card" data-category="fullstack">
+        <div class="card-image">
+          <img src="screenshots/mobile-app.png" alt="Cross-Platform Mobile App" loading="lazy">
         </div>
-    </section>
+        <div class="card-content">
+          <span class="category-badge">Web & Mobile</span>
+          <h3>Cross-Platform Mobile Application</h3>
+          <p>Full-stack mobile app built with Flutter, integrated with secure RESTful APIs and real-time backend functionality.</p>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 max-w-7xl mx-auto border-t border-cardBorder/40">
-        <div class="text-center mb-16">
-            <h2 class="text-xs font-bold text-neonPurple uppercase tracking-widest mb-2">Portfolio</h2>
-            <h3 class="text-3xl font-extrabold text-white">Featured Projects & Platforms</h3>
+          <div class="tech-tags">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Firebase</span>
+            <span>REST APIs</span>
+          </div>
+
+          <div class="card-links">
+            <a href="#" class="btn-link">App Store / Demo</a>
+          </div>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Project 1: Viral Storm Studio -->
-            <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-neonPurple transition glow-purple group">
-                <div class="p-8">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-semibold px-3 py-1 bg-neonPurple/20 text-neonPurple rounded-full border border-neonPurple/30">Generative AI Platform</span>
-                        <i class="fa-solid fa-photo-film text-2xl text-slate-500 group-hover:text-neonPurple transition"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Viral Storm Studio</h4>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
-                        A full-fledged Generative AI web studio designed for high-resolution image and cinematic video synthesis. Integrated with multiple state-of-the-art AI engines (Flux, Kling, Runway, Seedance), custom credit-monetization system, prompt editor, and instant preview history.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs font-mono bg-darkBg px-2.5 py-1 rounded text-slate-300">Generative AI</span>
-                        <span class="text-xs font-mono bg-darkBg px-2.5 py-1 rounded text-slate-300">FastAPI</span>
-                        <span class="text-xs font-mono bg-darkBg px-2.5 py-1 rounded text-slate-300">Media Generation</span>
-                        <span class="text-xs font-mono bg-darkBg px-2.5 py-1 rounded text-slate-300">Token Economy</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2: LADRAD Platform -->
-            <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-hidden hover:border-neonCyan transition glow-cyan group">
-                <div class="p-8">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-xs font-semibold px-3 py-1 bg-neonCyan/20 text-neonCyan rounded-full border border-neonCyan/30">Enterprise Document AI</span>
-                        <i class="fa-solid fa-file-contract text-2xl text-slate-500 group-hover:text-neonCyan transition"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">LADRAD - Automated Document OCR</h4>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
-                        An intelligent OCR platform built to automatically classify complex document types and extract key structured information from scanned files using Deep Learning and Computer Vision pipelines.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs font-mono bg-darkBg px-2.5 py-1 rounded text-slate-300">Computer Vision</span>
-                        <span class="text-xs font-mono bg-darkBg px-2.5 py-1 rounded text-slate-300">OCR</span>
-                        <span class="text-xs font-mono bg-darkBg px-2.5 py-1 rounded text-slate-300">Deep Learning</span>
-                        <span class="text-xs font-mono bg-darkBg px-2.5 py-1 rounded text-slate-300">Microservices</span>
-                    </div>
-                </div>
-            </div>
+      <!-- Project 4: Full-Stack Web -->
+      <div class="project-card" data-category="fullstack">
+        <div class="card-image">
+          <img src="screenshots/web-platform.png" alt="Web Application Platform" loading="lazy">
         </div>
-    </section>
+        <div class="card-content">
+          <span class="category-badge">Web & Mobile</span>
+          <h3>Enterprise Web Dashboard</h3>
+          <p>Modern responsive web app integrated with custom FastAPI backend microservices and responsive front-end UI.</p>
 
-    <!-- Professional Experience Section -->
-    <section id="experience" class="py-20 px-6 max-w-7xl mx-auto border-t border-cardBorder/40">
-        <div class="text-center mb-16">
-            <h2 class="text-xs font-bold text-neonCyan uppercase tracking-widest mb-2">Career Journey</h2>
-            <h3 class="text-3xl font-extrabold text-white">Professional Experience</h3>
+          <div class="tech-tags">
+            <span>React / Next.js</span>
+            <span>FastAPI</span>
+            <span>Docker</span>
+            <span>Tailwind</span>
+          </div>
+
+          <div class="card-links">
+            <a href="#" class="btn-link">Live Web App</a>
+            <a href="https://github.com/seifhjh" target="_blank" class="btn-link-outline">GitHub</a>
+          </div>
         </div>
+      </div>
 
-        <div class="space-y-8 max-w-4xl mx-auto">
-            <!-- Experience Item 1 -->
-            <div class="bg-cardBg border border-cardBorder p-8 rounded-2xl relative pl-10 border-l-4 border-l-neonPurple">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                    <h4 class="text-xl font-bold text-white">Machine Learning Engineer</h4>
-                    <span class="text-xs font-semibold text-neonPurple bg-neonPurple/10 px-3 py-1 rounded-full w-fit mt-1 md:mt-0">Sept 2022 - Present</span>
-                </div>
-                <h5 class="text-slate-400 font-medium text-sm mb-4">Be-softilys Tunisie | Almerys Client Project</h5>
-                <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
-                    <li>Designed and developed Python microservices for intelligent document processing.</li>
-                    <li>Built custom OCR and Computer Vision solutions for document classification and object detection.</li>
-                    <li>Implemented image preprocessing pipelines to significantly improve OCR performance.</li>
-                    <li>Managed experiments, tracking, and model versioning using MLflow, containerized via Docker.</li>
-                </ul>
-            </div>
-
-            <!-- Experience Item 2 -->
-            <div class="bg-cardBg border border-cardBorder p-8 rounded-2xl relative pl-10 border-l-4 border-l-neonCyan">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                    <h4 class="text-xl font-bold text-white">Data Science Intern</h4>
-                    <span class="text-xs font-semibold text-neonCyan bg-neonCyan/10 px-3 py-1 rounded-full w-fit mt-1 md:mt-0">Feb 2022 - July 2022</span>
-                </div>
-                <h5 class="text-slate-400 font-medium text-sm mb-4">Be-softilys Tunisie</h5>
-                <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
-                    <li>Developed Machine Learning & Deep Learning algorithms for CV & NLP projects.</li>
-                    <li>Evaluated performance metrics and fine-tuned AI architectures for higher accuracy.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 max-w-7xl mx-auto border-t border-cardBorder/40">
-        <div class="bg-gradient-to-r from-cardBg via-cardBg to-darkBg border border-cardBorder rounded-3xl p-10 md:p-16 text-center relative overflow-hidden glow-purple">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">
-                Have an AI Project or Need a Custom Solution?
-            </h2>
-            <p class="text-slate-400 max-w-2xl mx-auto mb-10 text-lg">
-                Whether you need a full RAG system, custom Document AI/OCR processing, model optimization, or a Full-Stack AI application, let's talk.
-            </p>
-
-            <!-- Direct Contact Buttons -->
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="https://wa.me/21658623737" target="_blank" class="px-8 py-4 rounded-xl font-bold text-white bg-green-600 hover:bg-green-500 transition flex items-center gap-3 shadow-lg shadow-green-600/20">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i> Chat on WhatsApp
-                </a>
-                <a href="https://www.linkedin.com/in/seifhadjhassen/" target="_blank" class="px-8 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 transition flex items-center gap-3 shadow-lg shadow-blue-600/20">
-                    <i class="fa-brands fa-linkedin text-2xl"></i> Connect on LinkedIn
-                </a>
-                <a href="mailto:seif.hadjhassen@gmail.com" class="px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-neonPurple to-neonCyan hover:opacity-90 transition flex items-center gap-3 shadow-lg shadow-neonPurple/20">
-                    <i class="fa-solid fa-envelope text-2xl"></i> Send Email
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-cardBorder/40 text-center text-xs text-slate-500">
-        <p>© 2026 Seif Hadjhassen. Built for high-performance AI Engineering.</p>
-    </footer>
-
-</body>
-</html>
+    </div>
+  </div>
+</section>
