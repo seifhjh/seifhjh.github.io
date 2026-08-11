@@ -1,113 +1,341 @@
-<!-- Projects Section -->
-<section id="projects" class="projects-section">
-  <div class="container">
-    <h2 class="section-title">Featured <span>Projects</span></h2>
-    <p class="section-subtitle">Explore my work across Artificial Intelligence, Machine Learning, and Full-Stack Web & Mobile Development.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seif Hadjhassen - AI & Software Engineer Portfolio</title>
+  <style>
+    /* Global Reset & Dark Mode Theme */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-    <!-- Filter Buttons / Tabs -->
-    <div class="project-tabs">
-      <button class="tab-btn active" onclick="filterProjects('all')">All Work</button>
-      <button class="tab-btn" onclick="filterProjects('ai-ml')">AI & ML Engineering</button>
-      <button class="tab-btn" onclick="filterProjects('fullstack')">Full-Stack (Web & Mobile)</button>
+    body {
+      background-color: #0b0c10;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Projects Section Styles */
+    .projects-section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .section-title span {
+      color: #06b6d4; /* Neon Cyan */
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    /* Tab Buttons Filter */
+    .project-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #111827;
+      color: #cbd5e1;
+      border: 1px solid #1f2937;
+      padding: 12px 26px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: linear-gradient(135deg, #a855f7, #06b6d4);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+    }
+
+    /* Responsive Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+      border-color: #a855f7;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .card-image img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .category-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #06b6d4;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card-content h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+      color: #f8fafc;
+    }
+
+    .card-content p {
+      color: #9ca3af;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tech-tags span {
+      background: #1f2937;
+      color: #c084fc;
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-link {
+      background: #06b6d4;
+      color: #0b0c10;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn-link:hover {
+      background: #22d3ee;
+    }
+
+    .btn-link-outline {
+      border: 1px solid #374151;
+      color: #f3f4f6;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-link-outline:hover {
+      border-color: #a855f7;
+      color: #a855f7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+      <p class="section-subtitle">Explore my work across AI/ML Systems Engineering and Full-Stack Web & Mobile Development.</p>
+
+      <!-- Filter Buttons / Tabs -->
+      <div class="project-tabs">
+        <button class="tab-btn active" onclick="filterProjects('all', event)">All Work</button>
+        <button class="tab-btn" onclick="filterProjects('ai-ml', event)">AI & ML Engineering</button>
+        <button class="tab-btn" onclick="filterProjects('fullstack', event)">Full-Stack (Web & Mobile)</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        
+        <!-- Project 1: AI & ML (LADRAD) -->
+        <div class="project-card" data-category="ai-ml">
+          <div class="card-image">
+            <img src="screenshots/ladrad-preview.png" alt="LADRAD Document AI" loading="lazy">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">AI & ML Engineering</span>
+            <h3>LADRAD - Document AI & OCR</h3>
+            <p>Enterprise document processing system featuring custom OCR pipelines, automated document classification, and structured metadata extraction.</p>
+
+            <div class="tech-tags">
+              <span>Python</span>
+              <span>FastAPI</span>
+              <span>Computer Vision</span>
+              <span>OCR Microservices</span>
+            </div>
+
+            <div class="card-links">
+              <a href="#" class="btn-link">View Demo</a>
+              <a href="https://github.com/seifhjh" target="_blank" class="btn-link-outline">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: AI & ML (RAG Pipeline) -->
+        <div class="project-card" data-category="ai-ml">
+          <div class="card-image">
+            <img src="screenshots/rag-pipeline.png" alt="RAG Pipeline System" loading="lazy">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">AI & ML Engineering</span>
+            <h3>Knowledge Assistant & RAG Pipeline</h3>
+            <p>Retrieval-Augmented Generation (RAG) system architecture utilizing vector embeddings and semantic search for document QA processing.</p>
+
+            <div class="tech-tags">
+              <span>LangChain</span>
+              <span>VectorDB</span>
+              <span>PyTorch</span>
+              <span>RAG System</span>
+            </div>
+
+            <div class="card-links">
+              <a href="#" class="btn-link">Architecture Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Full-Stack Mobile (Flutter) -->
+        <div class="project-card" data-category="fullstack">
+          <div class="card-image">
+            <img src="screenshots/mobile-app.png" alt="Cross-Platform Mobile App" loading="lazy">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">Full-Stack Mobile</span>
+            <h3>Cross-Platform Mobile Application</h3>
+            <p>Full-stack mobile app engineered with Flutter and Java Android, integrated with REST APIs, real-time backend services, and custom UI/UX.</p>
+
+            <div class="tech-tags">
+              <span>Flutter</span>
+              <span>Java Android</span>
+              <span>Firebase</span>
+              <span>REST APIs</span>
+            </div>
+
+            <div class="card-links">
+              <a href="#" class="btn-link">App Preview</a>
+              <a href="https://github.com/seifhjh" target="_blank" class="btn-link-outline">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Full-Stack Web App -->
+        <div class="project-card" data-category="fullstack">
+          <div class="card-image">
+            <img src="screenshots/web-platform.png" alt="Web Application Platform" loading="lazy">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">Full-Stack Web</span>
+            <h3>Enterprise Web Dashboard & Backend</h3>
+            <p>Scalable web platform featuring modern responsive front-end integrated with high-performance FastAPI and microservice backends.</p>
+
+            <div class="tech-tags">
+              <span>React / Web UI</span>
+              <span>FastAPI</span>
+              <span>Docker</span>
+              <span>Python Backend</span>
+            </div>
+
+            <div class="card-links">
+              <a href="#" class="btn-link">Live Web App</a>
+              <a href="https://github.com/seifhjh" target="_blank" class="btn-link-outline">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <!-- Projects Grid -->
-    <div class="projects-grid">
-      
-      <!-- Project 1: AI & ML -->
-      <div class="project-card" data-category="ai-ml">
-        <div class="card-image">
-          <img src="screenshots/ladrad-preview.png" alt="LADRAD Document AI" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-badge">AI & ML</span>
-          <h3>LADRAD - Document AI & OCR</h3>
-          <p>Enterprise document processing system featuring custom OCR pipelines, classification, and metadata extraction.</p>
+  <!-- Filtering Script -->
+  <script>
+    function filterProjects(category, event) {
+      // Toggle Active Tab Style
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
 
-          <div class="tech-tags">
-            <span>Python</span>
-            <span>FastAPI</span>
-            <span>Computer Vision</span>
-            <span>OCR</span>
-          </div>
-
-          <div class="card-links">
-            <a href="#" class="btn-link">View Demo</a>
-            <a href="https://github.com/seifhjh" target="_blank" class="btn-link-outline">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2: AI & ML (RAG Knowledge) -->
-      <div class="project-card" data-category="ai-ml">
-        <div class="card-image">
-          <img src="screenshots/rag-pipeline.png" alt="RAG Pipeline System" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-badge">AI & ML</span>
-          <h3>Knowledge Assistant & RAG Pipeline</h3>
-          <p>Advanced RAG system architecture leveraging LLMs, vector search embeddings, and contextual document retrieval.</p>
-
-          <div class="tech-tags">
-            <span>LangChain</span>
-            <span>VectorDB</span>
-            <span>PyTorch</span>
-            <span>RAG Architecture</span>
-          </div>
-
-          <div class="card-links">
-            <a href="#" class="btn-link">Architecture Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3: Full-Stack Mobile -->
-      <div class="project-card" data-category="fullstack">
-        <div class="card-image">
-          <img src="screenshots/mobile-app.png" alt="Cross-Platform Mobile App" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-badge">Web & Mobile</span>
-          <h3>Cross-Platform Mobile Application</h3>
-          <p>Full-stack mobile app built with Flutter, integrated with secure RESTful APIs and real-time backend functionality.</p>
-
-          <div class="tech-tags">
-            <span>Flutter</span>
-            <span>Dart</span>
-            <span>Firebase</span>
-            <span>REST APIs</span>
-          </div>
-
-          <div class="card-links">
-            <a href="#" class="btn-link">App Store / Demo</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4: Full-Stack Web -->
-      <div class="project-card" data-category="fullstack">
-        <div class="card-image">
-          <img src="screenshots/web-platform.png" alt="Web Application Platform" loading="lazy">
-        </div>
-        <div class="card-content">
-          <span class="category-badge">Web & Mobile</span>
-          <h3>Enterprise Web Dashboard</h3>
-          <p>Modern responsive web app integrated with custom FastAPI backend microservices and responsive front-end UI.</p>
-
-          <div class="tech-tags">
-            <span>React / Next.js</span>
-            <span>FastAPI</span>
-            <span>Docker</span>
-            <span>Tailwind</span>
-          </div>
-
-          <div class="card-links">
-            <a href="#" class="btn-link">Live Web App</a>
-            <a href="https://github.com/seifhjh" target="_blank" class="btn-link-outline">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+      // Filter Cards Logic
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
